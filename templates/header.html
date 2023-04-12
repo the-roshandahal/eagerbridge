@@ -1,127 +1,83 @@
-{% load static %}
 {% include 'nav_links.html' %}
-    <!--====== Header Start ======-->
+<body id="top-header">
 
-   <header class="header-area">
-    <div class="header-top">
-        <div class="container">
-            <div class="header-top-wrapper d-flex flex-wrap justify-content-sm-between">
-                <div class="header-top-left mt-10">
-                    <ul class="header-meta">
-                        <li><a href="mailto://infoedumate@example.com">infoedumate@example.com</a></li>
-                    </ul>
-                </div>
-                <div class="header-top-right mt-10">
-                    <div class="header-link">
-                        <a class="notice" href="notice.html">Notice</a>
-                        <a class="login" href="login.html">Login</a>
-                        <a class="register" href="register.html">Register</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="navigation" class="navigation navigation-landscape">
-        <div class="container position-relative">
-            <div class="row align-items-center">
-                <div class="col-lg-3">
-                    <div class="header-logo">
-                        <a href="index.html"><img src="assets/images/logo.webp" width="135" height="88" alt="Logo"></a>
-                    </div>
-                </div>
-                <div class="col-lg-7 position-static">
-                    <div class="nav-toggle"></div>
-                    <nav class="nav-menus-wrapper">
-                        <ul class="nav-menu">
+  
+    <!--  Header Menu start -->
+        
+    <header>
+        <div class="header-top header-top-2">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="header-contact">
                             <li>
-                                <a class="active" href="#">Home</a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li><a class="active" href="index.html">Home 01</a></li>
-                                    <li><a href="index-2.html">Home 02</a></li>
-                                    <li><a href="index-3.html">Home 03</a></li>
-                                </ul>
+                                <span>Call :</span>
+                               <a href="tel:+23 45 5467">{{data.contact}}</a>
                             </li>
                             <li>
-                                <a href="#">Courses</a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li>
-                                        <a href="#">Courses Grid</a>
-                                        <ul class="nav-dropdown nav-submenu">
-                                            <li><a href="our-courses.html">Courses 01</a></li>
-                                            <li><a href="our-courses-2.html">Courses 02</a></li>
-                                            <li><a href="our-courses-3.html">Courses 03</a></li>
-                                            <li><a href="our-courses-left-sidebar.html">Courses Left Sidebar</a></li>
-                                            <li><a href="our-courses-right-sidebar.html">Courses Right Sidebar</a></li>
-                                        </ul>
-                                    </li>  
-                                    <li>
-                                        <a href="#">Courses</a>
-                                        <ul class="nav-dropdown nav-submenu">
-                                            <li><a href="our-courses-list.html">Courses List</a></li>
-                                            <li><a href="our-courses-list-left-sidebar.html">Courses List Left Sidebar </a></li>
-                                            <li><a href="our-courses-list-right-sidebar.html">Courses List Right Sidebar</a></li>                                                    
-                                        </ul>
-                                    </li>                                            
-                                    <li><a href="courses-details.html">Courses Details</a></li>
-                                </ul>
+                                <span>Email :</span>
+                                <a href="malito:{{data.email}}">{{data.email}}</a>
                             </li>
-                            <li>
-                                <a href="#">Events</a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li><a href="event.html">Event 01</a></li>
-                                    <li><a href="event-2.html">Event 02</a></li>
-                                    <li><a href="event-details.html">Event Details</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Pages</a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li><a href="about-us.html">About</a></li>
-                                    <li><a href="teachers.html">Teachers</a></li>
-                                    <li><a href="teacher-details.html">Teachers Details</a></li>
-                                    <li><a href="gallery.html">Gallery</a></li>
-                                    <li><a href="gallery-masonry.html">Gallery Masonry</a></li>
-                                    <li><a href="testimonial.html">Testimonial</a></li>
-                                    <li><a href="faq.html">FAQ'S</a></li>
-                                    <li><a href="notice.html">Notice</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Shop</a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li><a href="shop.html">Shop </a></li>
-                                    <li><a href="shop-left-sidebar.html">Shop Left Sidebar</a></li>
-                                    <li><a href="shop-right-sidebar.html">Shop Right Sidebar</a></li>
-                                    <li><a href="product-details.html">Shop Details</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Blog</a>
-                                <ul class="nav-dropdown nav-submenu">
-                                    <li><a href="blog.html">Blog </a></li>
-                                    <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                    <li><a href="blog-right-sideba.html">Blog Right Sidebar</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
                         </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-2 position-static">
-                    <div class="header-search">
-                        <form action="#">
-                            <input type="text" placeholder="Search">
-                            <button><i class="fas fa-search"></i></button>
-                        </form>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header-right float-right">
+                            <div class="header-socials">
+                                <ul>
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div>    
         </div>
-    </div>
-</header>
-
-<!--====== Header Ends ======-->
+    
+        <!-- Main Menu Start -->
+       
+        <div class="site-navigation main_menu menu-style-8" id="mainmenu-area">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="{% url 'home' %}">
+                        <img src="{{data.logo.url}}" alt="Edutim" height = "85">
+                    </a>
+    
+                    <!-- Toggler -->
+    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="fa fa-bars"></span>
+                    </button>
+    
+                    <!-- Collapse -->
+                    <div class="collapse navbar-collapse" id="navbarMenu" >
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle" href="{% url 'home' %}">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="{% url 'about_us' %}" class="nav-link js-scroll-trigger">
+                                    About us
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link dropdown-toggle" href="{% url 'blogs' %}">
+                                    Blog
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item ">
+                                <a href="{% url 'contact_us' %}" class="nav-link">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div> <!-- / .navbar-collapse -->
+                </div> <!-- / .container -->
+            </nav>
+        </div>
+    </header>

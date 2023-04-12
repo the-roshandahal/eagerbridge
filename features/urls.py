@@ -8,7 +8,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("", views.home, name="home"),
-    
+    path('about_us/', views.about_us, name="about_us"),
+    path('blogs/', views.blogs, name="blogs"),
+    path('blog_details/<slug:slug>', views.blog_details, name="blog_details"),
+    path('contact_us/', views.contact_us, name="contact_us"),
+    path('team/', views.team, name="team"),
+
     re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
 ]

@@ -47,7 +47,8 @@ def blog_details(request,slug):
 
 
 def about_us(request):
-    home = HomeContent.objects.filter()[:1].get()
+    # home = HomeContent.objects.filter()[:1].get()
+    home = None
     testimonial = Testimonial.objects.all()
     team = TeamMember.objects.all()
     member = BoardMember.objects.all()

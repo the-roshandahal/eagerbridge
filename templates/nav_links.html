@@ -1,40 +1,33 @@
-{% load static %}
-<!doctype html>
-<html class="no-js" lang="en">
-
+{% load static %}<!DOCTYPE html>
+<html lang="zxx">
 <head>
-    <meta charset="utf-8">
-    
-    <!--====== Title ======-->
-    <title>{{data.school_name}}</title>
-    
-    <meta name="description" content="{{data.mission}}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="{{data.mission}}">
+  
+  <meta name="author" content="themeturn.com">
 
-    <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href="{{data.logo}}" type="image/webp">
-    
-        
-    <!-- CSS
-    ============================================ -->
+  <title>{{data.school_name}}</title>
 
-    <!--===== Vendor CSS (Bootstrap & Icon Font) =====-->
-    <link rel="stylesheet" href="{% static 'assets/css/plugins/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/plugins/fontawesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/plugins/default.css' %}">
+  <!-- Mobile Specific Meta-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static 'assets/vendors/bootstrap/bootstrap.css' %}">
+  <!-- Iconfont Css -->
+  <link rel="stylesheet" href="{% static 'assets/vendors/fontawesome/css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendors/bicon/css/bicon.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendors/themify/themify-icons.css' %}">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="{% static 'assets/vendors/animate-css/animate.css' %}">
+  <!-- WooCOmmerce CSS -->
+  <link rel="stylesheet" href="{% static 'assets/vendors/woocommerce/woocommerce-layouts.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendors/woocommerce/woocommerce-small-screen.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendors/woocommerce/woocommerce.css' %}">
+   <!-- Owl Carousel  CSS -->
+  <link rel="stylesheet" href="{% static 'assets/vendors/owl/assets/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/vendors/owl/assets/owl.theme.default.min.css' %}">
 
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
 
-    <!--===== Plugins CSS (All Plugins Files) =====-->
-    <link rel="stylesheet" href="{% static 'assets/css/plugins/animate.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/plugins/slick.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/plugins/magnific-popup.css' %}">
-
-    <!--====== Main Style CSS ======-->
-    <!-- <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"> -->
-    <link rel="stylesheet" href="{% static 'assets/css/style.min.css' %}">
-    
 </head>
-
-<body>
-    
- 
