@@ -6,16 +6,16 @@
             <div class="row align-items-center">
                 <div class="col-md-12 col-xl-6">
                     <div class="banner-content">
-                        <span class="subheading">Learn from professionals</span>
-                        <h1>Build skills with courses flexible online courses</h1>
-                        <p>We invest in personnel, technological innovations and infrastructure and have established regional and international offices.</p>
-                        <a href="#" class="btn btn-main">Join For Free</a>  
+                        <span class="subheading">{{home.mini_title_text}}</span>
+                        <h1>{{home.title_text}}</h1>
+                        <p>{{home.sub_text}}</p>
+                        <a href="{{home.button_url}}" class="btn btn-main">{{home.button_text}}</a>  
                     </div>
                 </div>
     
                 <div class="col-xl-6">
                     <div class="banner-img">
-                        <img src="assets/images/banner/banner-8.png" alt="" class="img-fluid">
+                        <img src="{{home.banner_image.url}}" alt="" class="img-fluid">
                     </div>
                 </div>
             </div> <!-- / .row -->
@@ -73,28 +73,29 @@
             </div>
         </div>
     </section>
+
     <section class="about-section section-padding">
         <div class="container">
             <div class="row align-items-center">
                  <div class="col-lg-6 col-md-12">
                    <div class="about-img">
-                       <img src="{% static 'assets/images/bg/hero-5-img.png' %}" alt="" class="img-fluid">
+                       <img src="{{home.intro_image.url}}" alt="" class="img-fluid">
                    </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="section-heading">
-                        <span class="subheading">Message</span>
-                        <h3>Message From Chairman</h3>
+                        <span class="subheading">Introduction</span>
+                        <h3>{{home.intro_title}}</h3>
                     </div>
     
                     <div class="about-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicin gelit Lorem ipsum dolor sit amet, consectetur adipisicin gelit Lorem ipsum dolor sit amet, consectetur adipisicin gelit Lorem ipsum dolor sit amet, consectetur adipisicin gelit Lorem ipsum dolor sit amet, consectetur adipisicin gelitLorem ipsum dolor sit amet, consectetur adipisicin gelit</p>
+                        <p>{{home.intro_text}}</p>
 
                     </div>
                 </div>
             </div>
         </div>
-    </section> 
+    </section>  
         <!--  Course categories -->
     
         <section class="category-section3">
@@ -159,7 +160,30 @@
                 </div>
             </div>
         </section>
+        
 
+        <section class="about-section section-padding">
+            <div class="container">
+                <div class="row align-items-center">
+                     <div class="col-lg-6 col-md-12">
+                       <div class="about-img">
+                           <img src="{{home.message_image.url}}" alt="" class="img-fluid">
+                       </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="section-heading">
+                            <span class="subheading">Message</span>
+                            <h3>{{home.message_title}}</h3>
+                        </div>
+        
+                        <div class="about-content">
+                            <p>{{home.message}}</p>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>  
     <!--course section start-->
     <section class="section-padding video-section" >
         <div class="container">
@@ -177,18 +201,18 @@
                     <div class="counter-item">
                         <i class="ti-desktop"></i>
                         <div class="count">
-                            <span class="counter h2">90</span>
+                            <span class="counter h2">{{home.no_of_students}}</span>
                         </div>
-                        <p>Expert Instructors</p>
+                        <p>Happy Students</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="counter-item">
                         <i class="ti-agenda"></i>
                         <div class="count">
-                            <span class="counter h2">1450</span>
+                            <span class="counter h2">{{home.success_rate}}</span>
                         </div>
-                        <p>Total Courses</p>
+                        <p>success Rate</p>
                     </div>
                 </div>
     
@@ -196,9 +220,9 @@
                     <div class="counter-item">
                         <i class="ti-heart"></i>
                         <div class="count">
-                            <span class="counter h2">5697</span>
+                            <span class="counter h2">{{home.no_of_teachers}}</span>
                         </div>
-                        <p>Happy Students</p>
+                        <p>Happy Teachers</p>
                     </div>
                 </div>
             
@@ -206,9 +230,9 @@
                     <div class="counter-item">
                         <i class="ti-microphone-alt"></i>
                         <div class="count">
-                            <span class="counter h2">24</span>
+                            <span class="counter h2">{{home.since}}</span>
                         </div>
-                        <p>Creative Events</p>
+                        <p>Since</p>
                     </div>
                 </div>
             </div>
@@ -217,71 +241,7 @@
     </section>
     <!--course section end--> 
 
-    
-    <!--  Course INstructors -->
-    <section class="section-padding bg-grey team-2">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section-heading center-heading">
-                        <span class="subheading">Best Expert Teachers</span>
-                        <h3>Meet Our Professionals</h3>
-                    </div>
-                </div>
-            </div>
-    
-            <div class="row">
-                <div class="col-lg-4 col-sm-6">
-                    <div class="team-block">
-                        <div class="team-img">
-                            <img src="{% static 'assets/images/team/team-4.jpg' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="team-info">
-                            <h4>Harish Ham</h4>
-                            <p>CEO, Developer</p>
-                        </div>
-                        <ul class="team-socials list-inline">
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="team-block">
-                        <div class="team-img">
-                            <img src="{% static 'assets/images/team/team-1.jpg' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="team-info">
-                            <h4>Tanvir Hasan</h4>
-                            <p>Market Researcher</p>
-                        </div>
-                        <ul class="team-socials list-inline">
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="team-block">
-                        <div class="team-img">
-                            <img src="{% static 'assets/images/team/team-2.jpg' %}" alt="" class="img-fluid">
-                        </div>
-                        <div class="team-info">
-                            <h4>Mikele John</h4>
-                            <p>Content Writter</p>
-                        </div>
-                        <ul class="team-socials list-inline">
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     
     <!--  Testimonial Start -->
     <section class="testimonial section-padding">

@@ -127,30 +127,38 @@ class HomeContent(models.Model):
     mini_title_text = models.CharField(max_length=150)
     title_text = models.CharField(max_length=150)
     sub_text = models.CharField(max_length=255)
+
     button_text = models.CharField(max_length=100)
     button_url = models.URLField()
     banner_image = models.ImageField(upload_to="home_images/", null=True, blank=True)
     
-    about_title = models.CharField(max_length=255)
-    about_sub_text = models.CharField(max_length=255)
-    about_content = models.TextField()
-    about_image = models.ImageField(upload_to="home_images/", null=True, blank=True)
+    intro_title = models.CharField(max_length=255)
+    intro_text = models.TextField()
+    intro_image = models.ImageField(upload_to="home_images/", null=True, blank=True)
 
+    message_title = models.CharField(max_length=255)
+    message = models.TextField()
+    message_image = models.ImageField(upload_to="home_images/", null=True, blank=True)
+
+    no_of_students = models.IntegerField()
+    success_rate = models.FloatField()
+    no_of_teachers = models.IntegerField()
+    since = models.IntegerField()
     def __str__(self):
         return self.data_set
     class Meta:
-        verbose_name_plural = "09. About & Home Page Content" 
+        verbose_name_plural = "09.Home Page Content" 
 
 
 
-class Message(models.Model):
+class Team(models.Model):
     name = models.CharField(max_length=200)
     position = models.CharField(max_length=150)
-    message = models.TextField()
-    image = models.ImageField(upload_to="message_images/", null=True, blank=True)
+    team = models.TextField()
+    image = models.ImageField(upload_to="team_images/", null=True, blank=True)
 
     def __str__(self):
         return self.name
         
     class Meta:
-        verbose_name_plural = "10. Message" 
+        verbose_name_plural = "10. team" 

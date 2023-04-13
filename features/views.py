@@ -2,8 +2,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as django_logout
 from django.shortcuts import render, redirect
 from .models import *
-# from django.db.models import Q
-# from django.contrib import messages, auth
 
 
 def home(request):
@@ -70,9 +68,9 @@ def contact_us(request):
         contact = request.POST["contact"]
         subject = request.POST["subject"]
         message = request.POST["message"]
-        Contact.objects.create(
-            name=name, email=email, subject=subject, message=message,contact=contact
-        )
+
+        Contact.objects.create(name=name, email=email, subject=subject, message=message,contact=contact)
+
         return redirect('contact_us')
     else:
         return render(request,'contact_us.html')
@@ -84,15 +82,10 @@ def team(request):
     member = BoardMember.objects.all()
     faq = Faqs.objects.all()
 
-    if Message.objects.all():
-        message = Message.objects.filter()[:1].get()
-    else:
-        message=None
     context = {
         'team':team,
         'member':member,
         'home':home,
-        'message':message,
-        'faq':faq
+        'faq':faq,
     }
     return render(request,'team.html',context)
