@@ -45,16 +45,15 @@ def blog_details(request,slug):
 
 
 def about_us(request):
-    # home = HomeContent.objects.filter()[:1].get()
-    home = None
+    about = AboutContent.objects.filter()[:1].get()
     testimonial = Testimonial.objects.all()
     team = TeamMember.objects.all()
-    member = BoardMember.objects.all()
     faq = Faqs.objects.all()
+    home = HomeContent.objects.filter()[:1].get()
     context = {
             'testimonial':testimonial,
             'home':home,
-            'member':member,
+            'about':about,
             'team':team,
             'faq':faq,
         }
@@ -79,13 +78,30 @@ def contact_us(request):
 def team(request):
     home = HomeContent.objects.filter()[:1].get()
     team = TeamMember.objects.all()
-    member = BoardMember.objects.all()
     faq = Faqs.objects.all()
 
     context = {
         'team':team,
-        'member':member,
         'home':home,
         'faq':faq,
     }
     return render(request,'team.html',context)
+
+
+def gallery(request):
+    gallery = Gallery.objects.filter(galleryimage__isnull=False).distinct()
+    context = {
+        'gallery':gallery,
+    }
+    return render(request,'gallery.html',context)
+
+
+def gallery_single(request,id):
+    gallery = Gallery.objects.get(id=id)
+    gallery_name = gallery.title
+    gallery_images = GalleryImage.objects.filter(gallery_id=id)
+    context = {
+        'gallery_name':gallery_name,
+        'gallery_images':gallery_images
+    }
+    return render(request,'gallery_single.html',context)

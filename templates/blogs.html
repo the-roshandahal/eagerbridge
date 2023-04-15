@@ -5,75 +5,28 @@
   <section class="space-3">
     <div class="container">
       <div class="row">
+        {% for blogs in blogs %}
+          
         <div class="col-lg-3 mb-4 mb-lg-0">
-            <div class="product-wrap">
-                <a href="#" class="">
-                  <img src="{% static 'assets/images/shop/p2.jpg' %}" alt="" />
-                </a>
-              </div>
-              <div class="woocommerce-product-title-wrap">
-                <h5>
-                  <a href="#">Education in nepal</a>
-                </h5>
-              </div>
-              <span class="price">
-                <span class="woocommerce-Price-amount amount">
-                  <span class="woocommerce-Price-currencySymbol">10 Apr, 2023
-                </span>
+          <div class="product-wrap">
+            <a href="#" class="">
+              <img src="{{blogs.image.url}}" alt="" />
+            </a>
+          </div>
+          <div class="woocommerce-product-title-wrap">
+            <h5>
+              <a href="{% url 'blog_details' slug=blogs.slug %}">{{blogs.title}}</a>
+            </h5>
+          </div>
+          <span class="price">
+            <span class="woocommerce-Price-amount amount">
+              <span class="woocommerce-Price-currencySymbol">10 Apr, 2023
               </span>
+            </span>
+          </div>
+          
         </div>
-        <div class="col-lg-3 mb-4 mb-lg-0">
-            <div class="product-wrap">
-                <a href="#" class="">
-                  <img src="{% static 'assets/images/shop/p2.jpg' %}" alt="" />
-                </a>
-              </div>
-              <div class="woocommerce-product-title-wrap">
-                <h5>
-                  <a href="#">Education in nepal</a>
-                </h5>
-              </div>
-              <span class="price">
-                <span class="woocommerce-Price-amount amount">
-                  <span class="woocommerce-Price-currencySymbol">10 Apr, 2023
-                </span>
-              </span>
-        </div>
-        <div class="col-lg-3 mb-4 mb-lg-0">
-            <div class="product-wrap">
-                <a href="#" class="">
-                  <img src="{% static 'assets/images/shop/p2.jpg' %}" alt="" />
-                </a>
-              </div>
-              <div class="woocommerce-product-title-wrap">
-                <h5>
-                  <a href="#">Education in nepal</a>
-                </h5>
-              </div>
-              <span class="price">
-                <span class="woocommerce-Price-amount amount">
-                  <span class="woocommerce-Price-currencySymbol">10 Apr, 2023
-                </span>
-              </span>
-        </div>
-        <div class="col-lg-3 mb-4 mb-lg-0">
-            <div class="product-wrap">
-                <a href="#" class="">
-                  <img src="{% static 'assets/images/shop/p2.jpg' %}" alt="" />
-                </a>
-              </div>
-              <div class="woocommerce-product-title-wrap">
-                <h5>
-                  <a href="#">Education in nepal</a>
-                </h5>
-              </div>
-              <span class="price">
-                <span class="woocommerce-Price-amount amount">
-                  <span class="woocommerce-Price-currencySymbol">10 Apr, 2023
-                </span>
-              </span>
-        </div>
-      </div>
+        {% endfor %}
     </div>
   </section>
   <!-- product section end-->

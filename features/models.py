@@ -34,27 +34,10 @@ class SchoolSetup(models.Model):
         verbose_name_plural = "01. School Setup" 
 
 
-class BoardMember(models.Model):
-    name = models.CharField(max_length=200)
-    position = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='team_images/board')
-    facebook= models.URLField(null=True, blank=True)
-    instagram= models.URLField(null=True, blank=True)
-    linkedin= models.URLField(null=True, blank=True)
-    created = models.DateField(auto_now_add=True)
-
-    def __str__(self):
-        return self.name
-    class Meta:
-        verbose_name_plural = "02. Board Members"
-
 class TeamMember(models.Model):
     name = models.CharField(max_length=200)
     position = models.CharField(max_length=200)
     image = models.ImageField(upload_to='team_images/team')
-    facebook= models.URLField(null=True, blank=True)
-    instagram= models.URLField(null=True, blank=True)
-    linkedin= models.URLField(null=True, blank=True)
     created = models.DateField(auto_now_add=True)
 
     def __str__(self):
@@ -91,7 +74,7 @@ class Faqs(models.Model):
 class Blog(models.Model):
     title = models.TextField()
     blog = models.TextField()
-    image = models.ImageField(upload_to="blogs_images/")
+    image = models.ImageField(upload_to="blogs_images/",verbose_name="Image (670*670)")
     slug = AutoSlugField(populate_from='title', unique=True)
     created = models.DateField(auto_now_add=True)
     def __str__(self):
@@ -113,14 +96,7 @@ class Contact(models.Model):
     class Meta:
         verbose_name_plural = "07. Contact"
 
-class Gallery(models.Model):
-    title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to="gallery_images/")
-    created = models.DateField(auto_now_add=True)
-    def __str__(self):
-        return self.title
-    class Meta:
-        verbose_name_plural = "08. Gallery" 
+
 
 class HomeContent(models.Model):
     data_set = models.CharField(max_length=200)
@@ -161,4 +137,39 @@ class Team(models.Model):
         return self.name
         
     class Meta:
-        verbose_name_plural = "10. team" 
+        verbose_name_plural = "10. team"
+
+
+class AboutContent(models.Model):
+    data_set = models.CharField(max_length=200)
+    mini_title_text = models.CharField(max_length=150)
+    title_text = models.CharField(max_length=150)
+    sub_text = models.TextField()
+    title_image = models.ImageField(upload_to="home_images/", null=True, blank=True)
+
+    mission = models.TextField()
+    vision = models.TextField()
+
+    def __str__(self):
+        return self.data_set
+    class Meta:
+        verbose_name_plural = "11.About Page Content" 
+
+
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=200)
+    created = models.DateField(auto_now_add=True)
+    def __str__(self):
+        return self.title
+    class Meta:
+        verbose_name_plural = "08. Gallery" 
+
+
+
+class GalleryImage(models.Model):
+    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='gallery_images/',verbose_name="Image (670*670)")
+
+
+

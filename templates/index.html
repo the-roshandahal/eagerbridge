@@ -98,92 +98,92 @@
     </section>  
         <!--  Course categories -->
     
-        <section class="category-section3">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="section-heading text-center center-heading">
-                            <span class="subheading">Excellent Funfacts</span>
-                            <h3>Reasons to chose Eagerbridge</h3>
-                        </div>
+    <section class="category-section3">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-heading text-center center-heading">
+                        <span class="subheading">Excellent Funfacts</span>
+                        <h3>Reasons to chose Eagerbridge</h3>
                     </div>
                 </div>
-                <div class="row no-gutters">
-                    <div class="course-categories">
-                        <div class="category-item category-bg-1">
-                          <a href="#">
-                            <div class="category-icon">
-                                <i class="bi bi-laptop"></i>
-                            </div>
-                            <h4>Web Development</h4>
-                            <p>(4 Courses)</p>
-                          </a>
+            </div>
+            <div class="row no-gutters">
+                <div class="course-categories">
+                    <div class="category-item category-bg-1">
+                        <a href="#">
+                        <div class="category-icon">
+                            <i class="bi bi-laptop"></i>
                         </div>
-                        <div class="category-item category-bg-2">
-                            <a href="#">
-                                <div class="category-icon">
-                                    <i class="bi bi-layer"></i>
-                                </div>
-                                <h4>Design</h4>
-                                <p>(12 Courses)</p>
-                            </a>
-                        </div>
-                        <div class="category-item category-bg-3">
-                           <a href="#">
+                        <h4>Web Development</h4>
+                        <p>(4 Courses)</p>
+                        </a>
+                    </div>
+                    <div class="category-item category-bg-2">
+                        <a href="#">
                             <div class="category-icon">
-                                <i class="bi bi-target-arrow"></i>
-                            </div>
-                            <h4>Marketing</h4>
-                            <p>(6 Courses)</p>
-                           </a>
-                        </div>
-        
-                        <div class="category-item category-bg-4">
-                           <a href="#">
-                            <div class="category-icon">
-                                <i class="bi bi-rocket2"></i>
-                            </div>
-                            <h4>Art & Design</h4>
-                            <p>(6 Courses)</p>
-                           </a>
-                        </div>
-                        <div class="category-item category-bg-5">
-                           <a href="#">
-                            <div class="category-icon">
-                                <i class="bi bi-shield"></i>
+                                <i class="bi bi-layer"></i>
                             </div>
                             <h4>Design</h4>
                             <p>(12 Courses)</p>
-                           </a>
+                        </a>
+                    </div>
+                    <div class="category-item category-bg-3">
+                        <a href="#">
+                        <div class="category-icon">
+                            <i class="bi bi-target-arrow"></i>
                         </div>
+                        <h4>Marketing</h4>
+                        <p>(6 Courses)</p>
+                        </a>
+                    </div>
+    
+                    <div class="category-item category-bg-4">
+                        <a href="#">
+                        <div class="category-icon">
+                            <i class="bi bi-rocket2"></i>
+                        </div>
+                        <h4>Art & Design</h4>
+                        <p>(6 Courses)</p>
+                        </a>
+                    </div>
+                    <div class="category-item category-bg-5">
+                        <a href="#">
+                        <div class="category-icon">
+                            <i class="bi bi-shield"></i>
+                        </div>
+                        <h4>Design</h4>
+                        <p>(12 Courses)</p>
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
         
 
-        <section class="about-section section-padding">
-            <div class="container">
-                <div class="row align-items-center">
-                     <div class="col-lg-6 col-md-12">
-                       <div class="about-img">
-                           <img src="{{home.message_image.url}}" alt="" class="img-fluid">
-                       </div>
-                    </div>
+    <section class="about-section section-padding">
+        <div class="container">
+            <div class="row align-items-center">
                     <div class="col-lg-6 col-md-12">
-                        <div class="section-heading">
-                            <span class="subheading">Message</span>
-                            <h3>{{home.message_title}}</h3>
-                        </div>
-        
-                        <div class="about-content">
-                            <p>{{home.message}}</p>
+                    <div class="about-img">
+                        <img src="{{home.message_image.url}}" alt="" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="section-heading">
+                        <span class="subheading">Message</span>
+                        <h3>{{home.message_title}}</h3>
+                    </div>
     
-                        </div>
+                    <div class="about-content">
+                        <p>{{home.message}}</p>
+
                     </div>
                 </div>
             </div>
-        </section>  
+        </div>
+    </section>  
     <!--course section start-->
     <section class="section-padding video-section" >
         <div class="container">
@@ -256,78 +256,28 @@
            
                 <div class="col-lg-8">
                     <div class="testimonials-slides-2 owl-carousel owl-theme">
+                        {% for testimonial in testimonial %}
                         <div class="review-item">
                             <div class="client-info">
                                 <i class="bi bi-quote"></i>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                                 Adipisci, voluptates nihil debitis</p>
-                                 <div class="rating">
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                </div>
+                                <p>{{testimonial.testimonial}}</p>
                             </div>
                             <div class="client-desc">
                                 <div class="client-img">
-                                    <img src="assets/images/clients/test-1.jpg" alt="" class="img-fluid">
+                                    {% if testimonial.image %}
+                                    <img src="{{testimonial.image.url}}" alt="" class="img-fluid">
+                                    {% else %}
+                                    <img src="{{data.logo.url}}" alt="" class="img-fluid">
+                                    {% endif %}
                                 </div>
                                 <div class="client-text">
-                                    <h4>John Doe</h4>
-                                    <span class="designation">Developer</span>
+                                    <h4>{{testimonial.name}}</h4>
+                                    <span class="designation">{{testimonial.position}}</span>
                                 </div>
                             </div>
                         </div>
-    
-                         <div class="review-item">
-                            <div class="client-info">
-                                <i class="bi bi-quote"></i>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                                 Adipisci, voluptates nihil debitis</p>
-                                 <div class="rating">
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="client-desc">
-                                <div class="client-img">
-                                    <img src="assets/images/clients/test-2.jpg" alt="" class="img-fluid">
-                                </div>
-                                <div class="client-text">
-                                    <h4>John Doe</h4>
-                                    <span class="designation">Developer</span>
-                                </div>
-                            </div>
-                        </div>
-    
-    
-                        <div class="review-item">
-                            <div class="client-info">
-                                <i class="bi bi-quote"></i>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                                 Adipisci, voluptates nihil debitis</p>
-                                 <div class="rating">
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                </div>
-                            </div>
-                            <div class="client-desc">
-                                <div class="client-img">
-                                    <img src="assets/images/clients/test-3.jpg" alt="" class="img-fluid">
-                                </div>
-                                <div class="client-text">
-                                    <h4>John Doe</h4>
-                                    <span class="designation">Developer</span>
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
+
                       </div>
                 </div>
             </div>
@@ -349,43 +299,21 @@
                 </div>
             </div>
     
-            <div class="row">               
+            <div class="row">          
+                {% for blogs in blogs %}
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-item">
-                        <img src="{% static 'assets/images/blog/news-1.jpg' %}" alt="" class="img-fluid">
+                        <img src="{{blogs.image.url}}" alt="" class="img-fluid">
                         <div class="blog-content">
                             <div class="entry-meta">
-                                <span><i class="fa fa-calendar-alt"></i>May 19, 2020</span>
+                                <span><i class="fa fa-calendar-alt"></i>{{blogs.created}}</span>
                             </div>
         
-                            <h2 class="font-size-26"><a href="#">Powerful tips to grow effective manner</a></h2>
+                            <h2 class="font-size-26"><a href="{% url 'blog_details' slug=blogs.slug %}">{{blogs.title}}</a></h2>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <img src="{% static 'assets/images/blog/news-1.jpg' %}" alt="" class="img-fluid">
-                        <div class="blog-content">
-                            <div class="entry-meta">
-                                <span><i class="fa fa-calendar-alt"></i>May 19, 2020</span>
-                            </div>
-        
-                            <h2 class="font-size-26"><a href="#">Powerful tips to grow effective manner</a></h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-item">
-                        <img src="{% static 'assets/images/blog/news-1.jpg' %}" alt="" class="img-fluid">
-                        <div class="blog-content">
-                            <div class="entry-meta">
-                                <span><i class="fa fa-calendar-alt"></i>May 19, 2020</span>
-                            </div>
-        
-                            <h2 class="font-size-26"><a href="#">Powerful tips to grow effective manner</a></h2>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

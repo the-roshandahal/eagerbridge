@@ -1,2 +1,69 @@
 {% include 'header.html' %}
+<section class="page-header">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+          <div class="page-header-content">
+            <h1>{{blog.title}}</h1>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="list-inline-item">/</li>
+              <li class="list-inline-item">
+                  Blog Details
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+		
+<div class="page-wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+        		<div class="post-single">
+    <div class="post-thumb">
+        <img src="{{blog.image.url}}" alt="" class="img-fluid">
+    </div>
+
+   <div class="single-post-content">
+        <div class="post-meta mt-4">
+            <span class="post-date"><i class="fa fa-calendar-alt mr-2"></i>{{blog.created}}</span>
+        </div>
+
+        <p class="mt-4 ">{{blog.blog|safe}}</p>
+    
+    </div>
+</div>
+    </div>
+    <div class="col-md-4">
+    <div class="blog-sidebar mt-5 mt-lg-0 mt-md-0">
+ 
+
+     <div class="widget widget_news">
+        <h4 class="widget-title">Latest Posts</h4>
+        
+        <ul class="recent-posts">
+            {% for blogs in blogs %}
+            <li>
+                <div class="widget-post-thumb">
+                    <a href="{% url 'blog_details' slug=blogs.slug %}"><img src="{{blogs.image.url}}" alt="" class="img-fluid"></a>
+                </div>
+                <div class="widget-post-body">
+                    <span>{{blogs.created}}</span>
+                    <h6> <a href="#">{{blogs.title}}</a></h6>
+                </div>
+            </li>  
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+      		</div>
+		</div>
+	</div>
+</div>
 {% include 'footer.html' %}
