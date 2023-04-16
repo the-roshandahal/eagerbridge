@@ -61,7 +61,7 @@ admin.site.register(TeamMember)
 admin.site.register(Testimonial)
 admin.site.register(Faqs)
 admin.site.register(Contact)
-# admin.site.register(Gallery)
+admin.site.register(Slider)
 admin.site.register(HomeContent,HomeFields)
 admin.site.register(AboutContent,AboutFields)
 

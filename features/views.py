@@ -8,21 +8,16 @@ def home(request):
     testimonial = Testimonial.objects.all()
     gallery = Gallery.objects.all()
     blogs = Blog.objects.all()
-    if HomeContent.objects.all().exists():
-        home = HomeContent.objects.filter()[:1].get()
+    slides = Slider.objects.all()
+    home = HomeContent.objects.filter()[:1].get()
 
-        context = {
-            'home':home,
-            'testimonial':testimonial,
-            'gallery':gallery,
-            'blogs':blogs
-        }
-    else:
-        context = {
-            'testimonial':testimonial,
-            'gallery':gallery,
-            'blogs':blogs
-        }
+    context = {
+        'slides':slides,
+        'home':home,
+        'testimonial':testimonial,
+        'gallery':gallery,
+        'blogs':blogs,
+    }
     return render(request,'index.html',context)
 
 

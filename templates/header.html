@@ -24,10 +24,21 @@
                         <div class="header-right float-right">
                             <div class="header-socials">
                                 <ul>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                    {% if data.facebook_url %}
+                                    <li><a href="{{ data.facebook_url }}"><i class="fab fa-facebook-f"></i></a></li>
+                                    {% endif %}
+                                  
+                                    {% if data.instagram_url %}
+                                    <li><a href="{{ data.instagram_url }}"><i class="fab fa-instagram"></i></a></li>
+                                    {% endif %}
+                                  
+                                    {% if data.linkedin_url %}
+                                    <li><a href="{{ data.linkedin_url }}"><i class="fab fa-linkedin"></i></a></li>
+                                    {% endif %}
+                                  
+                                    {% if data.youtube_url %}
+                                    <li><a href="{{ data.youtube_url }}"><i class="fab fa-youtube"></i></a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>

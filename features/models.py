@@ -15,12 +15,12 @@ class SchoolSetup(models.Model):
     linkedin_url = models.URLField(null=True,blank=True)
     youtube_url = models.URLField(null=True,blank=True)
     
-    map_url = models.URLField(null=True,blank=True)
+    # map_url = models.URLField(null=True,blank=True)
 
     
     mission = models.TextField()
     vision = models.TextField()
-    goal = models.TextField()
+    # goal = models.TextField()
 
     no_of_students = models.IntegerField()
     success_rate = models.FloatField()
@@ -100,17 +100,14 @@ class Contact(models.Model):
 
 class HomeContent(models.Model):
     data_set = models.CharField(max_length=200)
-    mini_title_text = models.CharField(max_length=150)
-    title_text = models.CharField(max_length=150)
-    sub_text = models.CharField(max_length=255)
 
-    button_text = models.CharField(max_length=100)
-    button_url = models.URLField()
-    banner_image = models.ImageField(upload_to="home_images/", null=True, blank=True)
-    
+    mini_title_text = models.CharField(max_length=150)
     intro_title = models.CharField(max_length=255)
     intro_text = models.TextField()
+    
     intro_image = models.ImageField(upload_to="home_images/", null=True, blank=True)
+    button_text = models.CharField(max_length=100)
+    button_url = models.URLField()
 
     message_title = models.CharField(max_length=255)
     message = models.TextField()
@@ -125,7 +122,15 @@ class HomeContent(models.Model):
     class Meta:
         verbose_name_plural = "09.Home Page Content" 
 
+class Slider(models.Model):
+    image = models.ImageField(upload_to="slider_images",verbose_name="Image (800*500)")
+    heading_text = models.CharField(max_length=200) 
+    sub_heading_text = models.CharField(max_length=200) 
 
+    def __str__(self):
+        return self.heading_text
+    class Meta:
+        verbose_name_plural = "10. Slider" 
 
 class Team(models.Model):
     name = models.CharField(max_length=200)
