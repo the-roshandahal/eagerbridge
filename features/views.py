@@ -47,14 +47,12 @@ def blog_details(request,slug):
 def about_us(request):
     about = AboutContent.objects.filter()[:1].get()
     testimonial = Testimonial.objects.all()
-    team = TeamMember.objects.all()
     faq = Faqs.objects.all()
     home = HomeContent.objects.filter()[:1].get()
     context = {
             'testimonial':testimonial,
             'home':home,
             'about':about,
-            'team':team,
             'faq':faq,
         }
     return render(request,'about_us.html',context)
@@ -78,12 +76,10 @@ def contact_us(request):
 def team(request):
     home = HomeContent.objects.filter()[:1].get()
     team = TeamMember.objects.all()
-    faq = Faqs.objects.all()
 
     context = {
         'team':team,
         'home':home,
-        'faq':faq,
     }
     return render(request,'team.html',context)
 

@@ -131,6 +131,7 @@ class Team(models.Model):
     name = models.CharField(max_length=200)
     position = models.CharField(max_length=150)
     team = models.TextField()
+    order = models.IntegerField()
     image = models.ImageField(upload_to="team_images/", null=True, blank=True)
 
     def __str__(self):
