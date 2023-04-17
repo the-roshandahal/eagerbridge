@@ -2,33 +2,35 @@
 
 <main class="site-main page-wrapper woocommerce">
   <!--product section start-->
-  <section class="space-3">
+  <section class="blog">
     <div class="container">
-      <div class="row">
-        {% for blogs in blogs %}
-          
-        <div class="col-lg-3 mb-4 mb-lg-0">
-          <div class="product-wrap">
-            <a href="#" class="">
-              <img src="{{blogs.image.url}}" alt="" />
-            </a>
-          </div>
-          <div class="woocommerce-product-title-wrap">
-            <h5>
-              <a href="{% url 'blog_details' slug=blogs.slug %}">{{blogs.title}}</a>
-            </h5>
-          </div>
-          <span class="price">
-            <span class="woocommerce-Price-amount amount">
-              <span class="woocommerce-Price-currencySymbol">10 Apr, 2023
-              </span>
-            </span>
-          </div>
-          
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading center-heading">
+                    <span class="subheading">Blog News</span>
+                    <h3>Latest Blog News</h3>
+                </div>
+            </div>
         </div>
-        {% endfor %}
+
+        <div class="row">          
+            {% for blogs in blogs %}
+            <div class="col-lg-4 col-md-6">
+                <div class="blog-item">
+                    <img src="{{blogs.image.url}}" alt="" class="img-fluid">
+                    <div class="blog-content">
+                        <div class="entry-meta">
+                            <span><i class="fa fa-calendar-alt"></i>{{blogs.created}}</span>
+                        </div>
+    
+                        <h2 class="font-size-26"><a href="{% url 'blog_details' slug=blogs.slug %}">{{blogs.title}}</a></h2>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-  </section>
+</section>
   <!-- product section end-->
 </main>
 
