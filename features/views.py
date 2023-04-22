@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as django_logout
 from django.shortcuts import render, redirect
 from .models import *
-
+import requests
 
 def home(request):
     testimonial = Testimonial.objects.all()
@@ -107,3 +107,15 @@ def notice(request):
         'events':events
     }
     return render(request,'notice.html',context)
+
+
+def results(request):
+    url = 'http://sms.eagerbridge.edu.np/api/external/get-exam-list?student_code=STD011'
+    response = requests.get(url)
+    if response.status_code == 200:  
+        data = response.json()  
+        
+    else:
+        print(f'Request failed with status code {response.status_code}')
+
+    return render(request,'result.html')
