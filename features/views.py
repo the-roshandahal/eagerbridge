@@ -63,7 +63,7 @@ def contact_us(request):
 
         Contact.objects.create(name=name, email=email, subject=subject, message=message,contact=contact)
 
-        return redirect('contact_us')
+        return redirect('home')
     else:
         return render(request,'contact_us.html')
 
