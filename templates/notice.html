@@ -1,0 +1,47 @@
+{% include "header.html" %}
+<section class="about-section section-padding">
+    {% if notices %}
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12 col-md-12">
+                <div class="section-heading">
+                    <h3>Notices</h3>
+                </div>
+                {% for notice in notices %}
+                <div class="about-content">
+                    <span class="subheading">{{notice.title}}</span>
+                    
+                    <p>{{notice.message}}</p>
+                    
+                </div>
+                <div class="separator-full mb-4"></div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if events %}
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12 col-md-12">
+                <div class="section-heading">
+                    <h3>Events</h3>
+                </div>
+                {% for event in events %}
+                <div class="about-content">
+                    <span class="subheading">{{event.title}}</span>
+                    
+                    <p>{{event.message}}</p>
+                    
+                </div>                                                               
+                <div class="separator-full mb-2"></div>
+                                                                    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</section>  
+{% include "footer.html" %}

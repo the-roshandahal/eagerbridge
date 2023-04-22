@@ -96,3 +96,14 @@ def gallery_single(request,id):
         'gallery_images':gallery_images
     }
     return render(request,'gallery_single.html',context)
+
+
+def notice(request):
+    notices = Notice.objects.filter(type='notice')
+    events = Notice.objects.filter(type='event')
+
+    context = {
+        'notices':notices,
+        'events':events
+    }
+    return render(request,'notice.html',context)

@@ -179,3 +179,15 @@ class GalleryImage(models.Model):
 
 
 
+TYPE_CHOICE = (
+    ('notice','notice'),
+    ('event','event'),
+)
+class Notice(models.Model):
+    type = models.CharField(max_length=100, choices=TYPE_CHOICE)
+    title = models.CharField(max_length=255)
+    message = models.TextField()
+    def __str__(self):
+        return f"{self.type} - {self.message}"
+    class Meta:
+        verbose_name_plural = "09. Notice" 
