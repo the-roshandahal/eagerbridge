@@ -112,7 +112,7 @@ def results(request):
     if request.method == 'POST':
         student = request.POST['student_id']
         student_id = student.lower()
-        url = f'http://spellsms.com:82/api/external/get-exam-list?student_code={student_id}'
+        url = f'http://sms.eagerbridge.edu.np:82/api/external/get-exam-list?student_code={student_id}'
         response = requests.get(url)
         if response.status_code == 200:
             result_data = response.json()
@@ -143,7 +143,7 @@ def searched_results(request):
     if request.method == 'POST':
         exam_id = request.POST['exam_id']
         student_id = request.POST['student_id']
-        url = f'http://spellsms.com:82/api/external/get-results?student_code={student_id}&exam_id={exam_id}'
+        url = f'http://sms.eagerbridge.edu.np:82/api/external/get-results?student_code={student_id}&exam_id={exam_id}'
         print(url)
         response = requests.get(url)
         if response.status_code == 200:
