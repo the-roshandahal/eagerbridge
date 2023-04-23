@@ -19,6 +19,7 @@
                     <div class="col-lg-12 align-items-center justify-content-center">
                         <h4 class="mb-2">Select Exam</h4>
                         <div class="form-group">
+                            <input type="text" name="student_id" value = {{student_id}} hidden>
                             {% for exam in result_data.data%}
                             <input type="radio" name="exam_id" value = {{exam.exam_id}}>
                             <label class="mr-4" for="">{{exam.exam_name}}</label>

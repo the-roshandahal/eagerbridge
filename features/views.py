@@ -117,12 +117,24 @@ def results(request):
         if response.status_code == 200:
             result_data = response.json()
             context = {
+                'student_id':student_id,
                 'result_data':result_data,
             }
             return render(request, 'result_select_exam.html',context)
+        
+        elif response.status_code == 422:
+            message = f"Student Not Found for student id {student_id}"
+            context = {
+                'message':message,
+            }
+            return render(request, 'result.html',context)
+        
         else:
-            print(f'Request failed with status code {response.status_code}')
-            return redirect('results')
+            message = f"Student Not Found for student id {student_id}"
+            context = {
+                'message':message,
+            }
+            return render(request, 'result_select_exam.html',context)
     else:
         return render(request,'result.html')
 
@@ -130,17 +142,25 @@ def results(request):
 def searched_results(request):
     if request.method == 'POST':
         exam_id = request.POST['exam_id']
-        url = f'http://spellsms.com:82/api/external/get-results?student_code=std1&exam_id={exam_id}'
+        student_id = request.POST['student_id']
+        url = f'http://spellsms.com:82/api/external/get-results?student_code={student_id}&exam_id={exam_id}'
+        print(url)
         response = requests.get(url)
         if response.status_code == 200:
-            result_data = response.json()
-            print(result_data)
+            result = response.json()
+            print(result)
+            message = "Result Published"
             context = {
-                'result_data':result_data,
+                'message':message,
+                'result':result,
             }
             return render(request, 'final_result.html',context)
         else:
             print(f'Request failed with status code {response.status_code}')
-            return redirect('results')
+            message = "Result not published yet"
+            context = {
+                'message':message,
+            }
+            return render(request, 'final_result.html',context)
 
     return render(request,'result_data.html')

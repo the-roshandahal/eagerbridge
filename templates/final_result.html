@@ -4,14 +4,82 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-6">
                 <div class="section-heading center-heading">
-                    <span class="subheading">Result</span>
-                    <h3>Results</h3>
+                    <span class="subheading">
+                        {% if message %}
+                        {{message}}
+                        {% endif %}
+                    </span>
                 </div>
             </div>
         </div>
        
         <div class="row align-items-center justify-content-center">
-            
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                      <strong>Student Name:</strong> {{result.data.student_name}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <strong>Roll No.:</strong> {{result.data.roll_no}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <strong>Exam Name:</strong> {{result.data.exam_name}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <strong>Level:</strong> {{result.data.level_name}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <strong>Class:</strong> {{result.data.class_name}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <strong>Section:</strong> {{result.data.section_name}}
+                    </div>
+                  </div>
+                  
+            </div>
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th colspan="2">Subject ID</th>
+                    <th colspan="2">Subject ID</th>
+                    <th colspan="2">Subject ID</th>
+                    <th colspan="2">Subject ID</th>
+                    <th colspan="2">Subject ID</th>
+                  </tr>
+                  
+                </thead>
+                <tbody>
+                  {% for mark in result.data.marks %}
+                  <tr>
+                    <td>{{ mark.subject_id|default_if_none:'--' }}</td>
+                    <td>{{ mark.subject_code|default_if_none:'--' }}</td>
+                    <td>{{ mark.subject_name|default_if_none:'--' }}</td>
+                    <td>{{ mark.status|default_if_none:'--' }}</td>
+                    <td>{{ mark.credit_hour|default_if_none:'--' }}</td>
+                    <td>{{ mark.subject_type|default_if_none:'--' }}</td>
+                    <td>{{ mark.grade|default_if_none:'--' }}</td>
+                    <td>{{ mark.gpa|default_if_none:'--' }}</td>
+                    <td>{{ mark.final_gpa|default_if_none:'--' }}</td>
+                    <td>{{ mark.final_grade|default_if_none:'--' }}</td>
+                  </tr>
+                  
+                  
+                  
+                  {% endfor %}
+                  <tr>
+                    <td colspan="8"></td>
+                    <td>Total GPA</td>
+                    <td>{{ result.data.total_gpa }}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="8"></td>
+                    <td>Performance</td>
+                    <td>{{ result.data.performance }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
         </div>
         
     </div>
