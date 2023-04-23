@@ -108,14 +108,39 @@ def notice(request):
     }
     return render(request,'notice.html',context)
 
-
 def results(request):
-    url = 'http://sms.eagerbridge.edu.np/api/external/get-exam-list?student_code=STD011'
-    response = requests.get(url)
-    if response.status_code == 200:  
-        data = response.json()  
-        
+    if request.method == 'POST':
+        student = request.POST['student_id']
+        student_id = student.lower()
+        url = f'http://spellsms.com:82/api/external/get-exam-list?student_code={student_id}'
+        response = requests.get(url)
+        if response.status_code == 200:
+            result_data = response.json()
+            context = {
+                'result_data':result_data,
+            }
+            return render(request, 'result_select_exam.html',context)
+        else:
+            print(f'Request failed with status code {response.status_code}')
+            return redirect('results')
     else:
-        print(f'Request failed with status code {response.status_code}')
+        return render(request,'result.html')
 
-    return render(request,'result.html')
+
+def searched_results(request):
+    if request.method == 'POST':
+        exam_id = request.POST['exam_id']
+        url = f'http://spellsms.com:82/api/external/get-results?student_code=std1&exam_id={exam_id}'
+        response = requests.get(url)
+        if response.status_code == 200:
+            result_data = response.json()
+            print(result_data)
+            context = {
+                'result_data':result_data,
+            }
+            return render(request, 'final_result.html',context)
+        else:
+            print(f'Request failed with status code {response.status_code}')
+            return redirect('results')
+
+    return render(request,'result_data.html')

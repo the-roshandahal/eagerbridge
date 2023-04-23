@@ -1,2 +1,36 @@
-{% include "header.html" %}
-{% include "footer.html" %}
+{% include 'header.html' %}
+<section class="contact-info section-padding">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading center-heading">
+                    <span class="subheading">Result</span>
+                    <h3>Results</h3>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row justify-content-center">
+
+            <form class="form-row " method="POST" action="{% url 'results' %}">
+                {% csrf_token %}
+
+               <div class="row justify-content-center">
+                   <div class="col-lg-12">
+                    <h4 class="mb-2">Student ID</h4>
+                       <div class="form-group">
+                           <input type="text" id="name" name="student_id" class="form-control" placeholder="Enter Your Student ID" required>
+                       </div>
+                   </div>
+                   <div class="col-lg-6">
+                        <div class="mt-4 text-right">
+                            <button class="btn btn-main" type="submit">Search <i class="fa fa-angle-right ml-2"></i></button>
+                        </div>
+                    </div>
+               </div>
+           </form> 
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}

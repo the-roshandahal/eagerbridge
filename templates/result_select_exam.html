@@ -1,0 +1,40 @@
+{% include 'header.html' %}
+<section class="contact-info section-padding">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading center-heading">
+                    <span class="subheading">Result</span>
+                    <h3>Results</h3>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row align-items-center justify-content-center">
+
+            <form class="form-row " method="POST" action="{% url 'searched_results' %}">
+                {% csrf_token %}
+        
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-12 align-items-center justify-content-center">
+                        <h4 class="mb-2">Select Exam</h4>
+                        <div class="form-group">
+                            {% for exam in result_data.data%}
+                            <input type="radio" name="exam_id" value = {{exam.exam_id}}>
+                            <label class="mr-4" for="">{{exam.exam_name}}</label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mt-4">
+                            <button class="btn btn-main" type="submit">Search <i class="fa fa-angle-right ml-2"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form> 
+        </div>
+        
+    </div>
+</section>
+
+{% include 'footer.html' %}

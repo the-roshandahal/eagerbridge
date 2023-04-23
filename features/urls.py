@@ -18,6 +18,7 @@ urlpatterns = [
     path('gallery_single/<int:id>', views.gallery_single, name="gallery_single"),
     
     path('results/', views.results, name="results"),
+    path('searched_results/', views.searched_results, name="searched_results"),
     re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
     re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
 ]
