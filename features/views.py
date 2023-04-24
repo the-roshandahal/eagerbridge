@@ -112,7 +112,7 @@ def results(request):
     if request.method == 'POST':
         student = request.POST['student_id']
         student_id = student.lower()
-        url = f'http://sms.eagerbridge.edu.np:82/api/external/get-exam-list?student_code={student_id}'
+        url = f'http://spellsms.com:82/api/external/get-exam-list?student_code={student_id}'
         response = requests.get(url)
         if response.status_code == 200:
             result_data = response.json()
@@ -123,14 +123,16 @@ def results(request):
             return render(request, 'result_select_exam.html',context)
         
         elif response.status_code == 422:
-            message = f"Student Not Found for student id {student_id}"
+            result_data = response.json()
+            initial_message = result_data.get('message') 
+            message= f"{initial_message} for {student_id}"
             context = {
                 'message':message,
             }
             return render(request, 'result.html',context)
         
         else:
-            message = f"Student Not Found for student id {student_id}"
+            message = "Unable to fetch data."
             context = {
                 'message':message,
             }
@@ -139,16 +141,52 @@ def results(request):
         return render(request,'result.html')
 
 
+# def results(request):
+#     if request.method == 'POST':
+#         student = request.POST['student_id']
+#         student_id = student.lower()
+#         url = f'http://sms.eagerbridge.edu.np:82/api/external/get-exam-list?student_code={student_id}'
+#         try:
+#             response = requests.get(url)
+#             if response.status_code == 200:
+#                 result_data = response.json()
+#                 context = {
+#                     'student_id':student_id,
+#                     'result_data':result_data,
+#                 }
+#                 return render(request, 'result_select_exam.html',context)
+            
+#             elif response.status_code == 422:
+#                 message = f"Student Not Found for student id {student_id}"
+#                 context = {
+#                     'message':message,
+#                 }
+#                 return render(request, 'result.html',context)
+            
+#             else:
+#                 message = f"Student Not Found for student id {student_id}"
+#                 context = {
+#                     'message':message,
+#                 }
+#                 return render(request, 'result_select_exam.html',context)
+#         except requests.exceptions.RequestException as e:
+#             # Return an error message if the URL is not accessible
+#             message = f"Error accessing URL: {str(e)}"
+#             context = {
+#                 'message': message,
+#             }
+#             return render(request, 'result.html', context)
+#     else:
+#         return render(request,'result.html')
+
 def searched_results(request):
     if request.method == 'POST':
         exam_id = request.POST['exam_id']
         student_id = request.POST['student_id']
-        url = f'http://sms.eagerbridge.edu.np:82/api/external/get-results?student_code={student_id}&exam_id={exam_id}'
-        print(url)
+        url = f'http://spellsms.com:82/api/external/get-results?student_code={student_id}&exam_id={exam_id}'
         response = requests.get(url)
         if response.status_code == 200:
             result = response.json()
-            print(result)
             message = "Result Published"
             context = {
                 'message':message,
@@ -156,8 +194,9 @@ def searched_results(request):
             }
             return render(request, 'final_result.html',context)
         else:
-            print(f'Request failed with status code {response.status_code}')
-            message = "Result not published yet"
+            # print(f'Request failed with status code {response.status_code}')
+            result = response.json()
+            message = result.get('message')
             context = {
                 'message':message,
             }
