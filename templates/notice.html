@@ -12,7 +12,11 @@
                     <span class="subheading">{{notice.title}}</span>
                     
                     <p>{{notice.message}}</p>
-                    
+                    {% if notice.image %}
+                    <div class="team-img" >
+                        <a href="{{notice.image.url}}" target = "_blank"><img src="{{notice.image.url}}" alt="" class="img-fluid" style="height:200px;"></a>
+                    </div>
+                    {% endif %}
                 </div>
                 <div class="separator-full mb-4"></div>
 
@@ -34,7 +38,11 @@
                     <span class="subheading">{{event.title}}</span>
                     
                     <p>{{event.message}}</p>
-                    
+                    {% if event.image %}
+                    <div class="team-img" >
+                        <a href="{{event.image.url}}" target = "_blank"><img src="{{event.image.url}}" alt="" class="img-fluid" style="height:200px;"></a>
+                    </div>
+                    {% endif %}
                 </div>                                                               
                 <div class="separator-full mb-2"></div>
                                                                     

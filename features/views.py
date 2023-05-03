@@ -99,8 +99,8 @@ def gallery_single(request,id):
 
 
 def notice(request):
-    notices = Notice.objects.filter(type='notice')
-    events = Notice.objects.filter(type='event')
+    notices = Notice.objects.filter(type='notice',active=True)
+    events = Notice.objects.filter(type='event',active=True)
 
     context = {
         'notices':notices,

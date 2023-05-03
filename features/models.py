@@ -187,6 +187,8 @@ class Notice(models.Model):
     type = models.CharField(max_length=100, choices=TYPE_CHOICE)
     title = models.CharField(max_length=255)
     message = models.TextField()
+    image = models.ImageField(null=True, blank=True)
+    active = models.BooleanField(default=True)
     def __str__(self):
         return f"{self.type} - {self.message}"
     class Meta:
