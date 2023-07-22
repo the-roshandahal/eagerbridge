@@ -1,0 +1,68 @@
+{% include 'header.html' %}
+<section class="contact-info section-padding">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading center-heading">
+                    <span class="subheading">Result</span>
+                    <h3>Results</h3>
+                    <span class="subheading">
+                        {% if message %}
+                        {{message}}
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+       
+        <div class="row justify-content-center align-items-center">
+
+            <form class="form " method="POST" action="{% url 'searched_results' %}">
+                {% csrf_token %}
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="text" name="class_id"  value="{{class_id}}" required hidden>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="text" name="exam_id"  value="{{exam_id}}" required hidden>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Select Class</h4>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="row">
+                                {% for section in sections %}
+                                <div class="col-3">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="section_id" id="option{{ section.section_id }}" value="{{ section.section_id }}" required>
+                                        <label class="form-check-label" for="option{{ section.section_id }}">{{ section.section_name }}</label>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <input type="number" id="name" name="roll_no" class="form-control" placeholder="Roll Number">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="mt-4 text-right">
+                            <button class="btn btn-main" type="submit">Next</button>
+                        </div>
+                    </div>
+                </div>
+           </form> 
+        </div>
+    </div>
+</section>
+
+{% include 'footer.html' %}

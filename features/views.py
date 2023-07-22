@@ -107,47 +107,98 @@ def notice(request):
         'events':events
     }
     return render(request,'notice.html',context)
-# def results(request):
-#     pass
+
+
 def results(request):
-    if request.method == 'POST':
-        student = request.POST['student_id']
-        student_id = student.lower()
-        url = f'http://spellsms.com:82/api/external/get-exam-list?student_code={student_id}'
+    url = "http://sms.eagerbridge.edu.np:82/api/external/get-level-lists?&tenant_id=dcd7bbdc-47fc-4412-91f9-f8cf8e906f69"
+    try:
         response = requests.get(url)
-        if response.status_code == 200:
+        result_data = response.json()
+        levels = result_data['data']['levels']
+    except requests.RequestException as e:
+        levels = []
+    context = {
+        'levels':levels,
+    }
+    return render(request, 'result.html',context)
+
+
+
+def select_exam(request):
+    if request.method == "POST":
+        level_id = request.POST['level_id']
+        url = f"http://sms.eagerbridge.edu.np:82/api/external/get-exam-lists-updated?level_id={level_id}&tenant_id=dcd7bbdc-47fc-4412-91f9-f8cf8e906f69"
+        try:
+            response = requests.get(url)
             result_data = response.json()
-            context = {
-                'student_id':student_id,
-                'result_data':result_data,
-            }
-            return render(request, 'result_select_exam.html',context)
-        
-        elif response.status_code == 422:
-            result_data = response.json()
-            initial_message = result_data.get('message') 
-            message= f"{initial_message} for {student_id}"
-            context = {
-                'message':message,
-            }
-            return render(request, 'result.html',context)
-        
-        else:
-            message = "Unable to fetch data."
-            context = {
-                'message':message,
-            }
-            return render(request, 'result_select_exam.html',context)
+            exams = result_data['data']['exams']
+        except requests.RequestException as e:
+            exams = []
+        context = {
+            'exams':exams,
+            'level_id':level_id,
+        }
+        return render(request,'select_exam.html',context)
     else:
-        return render(request,'result.html')
+        return redirect('results')
+
+
+def select_class(request):
+    if request.method == "POST":
+        exam_id = request.POST['exam_id']
+        url = f"http://sms.eagerbridge.edu.np:82/api/external/get-class-lists?level_id={exam_id}&tenant_id=dcd7bbdc-47fc-4412-91f9-f8cf8e906f69"
+        try:
+            response = requests.get(url)
+            result_data = response.json()
+            classes_data = result_data['data']['classes']
+            classes = [{'class_id': cls['class_id'], 'class_name': cls['class_name']} for cls in classes_data]
+        except requests.RequestException as e:
+            classes = []
+        context = {
+            'classes': classes,
+            'exam_id': exam_id,
+        }
+        return render(request, 'select_class.html', context)
+
+    else:
+        return redirect('results')
+
+
+
+def select_section(request):
+    if request.method == "POST":
+        class_id = request.POST['class_id']
+        exam_id = request.POST['exam_id']
+        url = f"http://sms.eagerbridge.edu.np:82/api/external/get-section-lists?class_id={class_id}&tenant_id=dcd7bbdc-47fc-4412-91f9-f8cf8e906f69"
+        try:
+            response = requests.get(url)
+            result_data = response.json()
+            sections = result_data['data']['sections']
+        except requests.RequestException as e:
+            sections = []
+        context = {
+            'sections':sections,
+            'exam_id':exam_id,
+            'class_id':class_id,
+        }
+        return render(request,'select_section.html',context)
+    else:
+        return redirect('results')
+
 
 
 def searched_results(request):
     if request.method == 'POST':
         exam_id = request.POST['exam_id']
-        student_id = request.POST['student_id']
-        url = f'http://spellsms.com:82/api/external/get-results?student_code={student_id}&exam_id={exam_id}'
+        class_id = request.POST['class_id']
+
+        section_id = request.POST['section_id']
+        roll_no = request.POST['roll_no']
+        
+        url = f'http://sms.eagerbridge.edu.np:82/api/external/get-result-updated?tenant_id=dcd7bbdc-47fc-4412-91f9-f8cf8e906f69&section_id={section_id}&class_id={class_id}&exam_id={exam_id}&roll_no={roll_no}'
+        print(url)
         response = requests.get(url)
+
         if response.status_code == 200:
             result = response.json()
             message = "Result Published"
@@ -157,7 +208,6 @@ def searched_results(request):
             }
             return render(request, 'final_result.html',context)
         else:
-            # print(f'Request failed with status code {response.status_code}')
             result = response.json()
             message = result.get('message')
             context = {
@@ -165,4 +215,3 @@ def searched_results(request):
             }
             return render(request, 'final_result.html',context)
 
-    return render(request,'result_data.html')

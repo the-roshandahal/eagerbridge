@@ -18,6 +18,13 @@ urlpatterns = [
     path('notice/', views.notice, name="notice"),
     
     path('results/', views.results, name="results"),
+    path('select_exam/', views.select_exam, name="select_exam"),
+    path('select_class/', views.select_class, name="select_class"),
+    path('select_section/', views.select_section, name="select_section"),
+
+
+
+
     path('searched_results/', views.searched_results, name="searched_results"),
 
     re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
