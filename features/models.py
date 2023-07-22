@@ -184,7 +184,7 @@ TYPE_CHOICE = (
     ('event','event'),
 )
 class Notice(models.Model):
-    type = models.CharField(max_length=100, choices=TYPE_CHOICE)
+    type = models.CharField(max_length=100, choices=TYPE_CHOICE, default='notice')
     title = models.CharField(max_length=255)
     message = models.TextField()
     image = models.ImageField(null=True, blank=True)

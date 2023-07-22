@@ -12,8 +12,8 @@
           <div class="carousel-item {% if forloop.first %}active{% endif %}">
             <img class="d-block w-100 h-100 object-fit-cover" src="{{ slide.image.url }}" alt="Slide">
             <div class="carousel-caption d-none d-md-block text-left caption-bg">
-              <h1>{{ slide.heading_text }}</h1>
-              <p>{{ slide.sub_heading_text }}</p>
+              <h1 style = "color:white;">{{ slide.heading_text }}</h1>
+              <p style = "color:white;">{{ slide.sub_heading_text }}</p>
             </div>
           </div>
         {% endfor %}
@@ -33,7 +33,7 @@
         bottom: 0;
         left: 0;
         background-color: rgba(0,0,0,0.5);
-        padding: 10px;
+        padding: 15px;
         width: 100%;
       }
       .carousel-item img {
@@ -62,7 +62,7 @@
                     <div class="banner-content">
                         <span class="subheading">{{home.mini_title_text}}</span>
                         <h1>{{home.intro_title}}</h1>
-                        <p>{{home.intro_text}}</p>
+                        <p>{{home.intro_text|safe}}</p>
                         <a href="{{home.button_url}}" class="btn btn-main">{{home.button_text}}</a>  
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     </div>
     
                     <div class="about-content">
-                        <p>{{home.message}}</p>
+                        <p>{{home.message|safe}}</p>
 
                     </div>
                 </div>

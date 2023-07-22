@@ -99,15 +99,16 @@ def gallery_single(request,id):
 
 
 def notice(request):
-    notices = Notice.objects.filter(type='notice',active=True)
-    events = Notice.objects.filter(type='event',active=True)
+    notices = Notice.objects.filter(type='notice')
+    events = Notice.objects.filter(type='event')
 
     context = {
         'notices':notices,
         'events':events
     }
     return render(request,'notice.html',context)
-
+# def results(request):
+#     pass
 def results(request):
     if request.method == 'POST':
         student = request.POST['student_id']
@@ -140,44 +141,6 @@ def results(request):
     else:
         return render(request,'result.html')
 
-
-# def results(request):
-#     if request.method == 'POST':
-#         student = request.POST['student_id']
-#         student_id = student.lower()
-#         url = f'http://sms.eagerbridge.edu.np:82/api/external/get-exam-list?student_code={student_id}'
-#         try:
-#             response = requests.get(url)
-#             if response.status_code == 200:
-#                 result_data = response.json()
-#                 context = {
-#                     'student_id':student_id,
-#                     'result_data':result_data,
-#                 }
-#                 return render(request, 'result_select_exam.html',context)
-            
-#             elif response.status_code == 422:
-#                 message = f"Student Not Found for student id {student_id}"
-#                 context = {
-#                     'message':message,
-#                 }
-#                 return render(request, 'result.html',context)
-            
-#             else:
-#                 message = f"Student Not Found for student id {student_id}"
-#                 context = {
-#                     'message':message,
-#                 }
-#                 return render(request, 'result_select_exam.html',context)
-#         except requests.exceptions.RequestException as e:
-#             # Return an error message if the URL is not accessible
-#             message = f"Error accessing URL: {str(e)}"
-#             context = {
-#                 'message': message,
-#             }
-#             return render(request, 'result.html', context)
-#     else:
-#         return render(request,'result.html')
 
 def searched_results(request):
     if request.method == 'POST':

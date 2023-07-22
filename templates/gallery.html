@@ -15,10 +15,10 @@
                 <div class="course-block style-5">
                     <div class="course-img">
                         {% with gallery.galleryimage_set.first as image %}
-                            {% if image %}
-                                <img src="{{ image.image.url }}" alt="Gallery Image" class="img-fluid">
-                            {% endif %}
-                        {% endwith %}
+                        {% if image %}
+                            <img src="{{ image.image.url }}" alt="Gallery Image" class="img-fluid">
+                        {% endif %}
+                    {% endwith %}
                     </div>
                     
                     <div class="course-content">
