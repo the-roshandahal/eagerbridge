@@ -196,13 +196,14 @@ def searched_results(request):
         roll_no = request.POST['roll_no']
         
         url = f'http://sms.eagerbridge.edu.np:82/api/external/get-result-updated?tenant_id=dcd7bbdc-47fc-4412-91f9-f8cf8e906f69&section_id={section_id}&class_id={class_id}&exam_id={exam_id}&roll_no={roll_no}'
-        print(url)
         response = requests.get(url)
 
         if response.status_code == 200:
             result = response.json()
+            print(result)
+            sorted_marks = sorted(result['data']['marks'], key=lambda x: (x['subject_code'] is not None, x['subject_code']))
+            result['data']['marks'] = sorted_marks
             message = "Result Published"
-            
             context = {
                 'message':message,
                 'result':result,
