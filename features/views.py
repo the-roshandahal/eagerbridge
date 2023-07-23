@@ -202,6 +202,7 @@ def searched_results(request):
         if response.status_code == 200:
             result = response.json()
             message = "Result Published"
+            
             context = {
                 'message':message,
                 'result':result,

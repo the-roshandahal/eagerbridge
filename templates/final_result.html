@@ -37,53 +37,54 @@
                   </div>
                   
             </div>
-
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th >Subject ID</th>
-                    <th >Subject Code</th>
-                    <th >Subject Name</th>
-                    <!--<th >Status</th>-->
-                    <th >Credit Hour</th>
-                    <th >Subject Type</th>
-                    <th >Grade</th>
-                    <th >GPA</th>
-                    <th >Final GPA</th>
-                    <th >Final Grade</th>
-                  </tr>
-                  
-                </thead>
-                <tbody>
-                  {% for mark in result.data.marks %}
-                  <tr>
-                    <td>{{ mark.subject_id|default_if_none:'--' }}</td>
-                    <td>{{ mark.subject_code|default_if_none:'--' }}</td>
-                    <td>{{ mark.subject_name|default_if_none:'--' }}</td>
-                    <!--<td>{{ mark.status|default_if_none:'--' }}</td>-->
-                    <td>{{ mark.credit_hour|default_if_none:'--' }}</td>
-                    <td>{{ mark.subject_type|default_if_none:'--' }}</td>
-                    <td>{{ mark.grade|default_if_none:'--' }}</td>
-                    <td>{{ mark.gpa|default_if_none:'--' }}</td>
-                    <td>{{ mark.final_gpa|default_if_none:'--' }}</td>
-                    <td>{{ mark.final_grade|default_if_none:'--' }}</td>
-                  </tr>
-                  
-                  
-                  
-                  {% endfor %}
-                  <tr>
-                    <td colspan="8"></td>
-                    <td>Total GPA</td>
-                    <td>{{ result.data.total_gpa }}</td>
-                  </tr>
-                  <tr>
-                    <td colspan="8"></td>
-                    <td>Performance</td>
-                    <td>{{ result.data.performance }}</td>
-                  </tr>
-                </tbody>
+            <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <!-- <th >Subject ID</th> -->
+                      <th >Subject Code</th>
+                      <th >Subject Name</th>
+                      <!--<th >Status</th>-->
+                      <th >Credit Hour</th>
+                      <th >Subject Type</th>
+                      <th >Grade</th>
+                      <th >GPA</th>
+                      <th >Final GPA</th>
+                      <th >Final Grade</th>
+                    </tr>
+                    
+                  </thead>
+                  <tbody>
+                    {% for mark in result.data.marks %}
+                    <tr>
+                      <!-- <td>{{ mark.subject_id|default_if_none:'--' }}</td> -->
+                      <td>{{ mark.subject_code|default_if_none:'--' }}</td>
+                      <td>{{ mark.subject_name|default_if_none:'--' }}</td>
+                      <!--<td>{{ mark.status|default_if_none:'--' }}</td>-->
+                      <td>{{ mark.credit_hour|default_if_none:'--' }}</td>
+                      <td>{{ mark.subject_type|default_if_none:'--' }}</td>
+                      <td>{{ mark.grade|default_if_none:'--' }}</td>
+                      <td>{{ mark.gpa|default_if_none:'--' }}</td>
+                      <td>{{ mark.final_gpa|default_if_none:'--' }}</td>
+                      <td>{{ mark.final_grade|default_if_none:'--' }}</td>
+                    </tr>
+                    
+                    
+                    
+                    {% endfor %}
+                    <tr>
+                      <td colspan="6"></td>
+                      <td>Total GPA</td>
+                      <td>{{ result.data.total_gpa }}</td>
+                    </tr>
+                    <tr>
+                      <td colspan="6"></td>
+                      <td>Performance</td>
+                      <td>{{ result.data.performance }}</td>
+                    </tr>
+                  </tbody>
               </table>
+            </div>
               
         </div>
         
