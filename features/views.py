@@ -149,9 +149,13 @@ def select_class(request):
         url = f"http://sms.eagerbridge.edu.np:82/api/external/get-class-lists?level_id={exam_id}&tenant_id=dcd7bbdc-47fc-4412-91f9-f8cf8e906f69"
         try:
             response = requests.get(url)
-            result_data = response.json()
-            classes_data = result_data['data']['classes']
-            classes = [{'class_id': cls['class_id'], 'class_name': cls['class_name']} for cls in classes_data]
+            if response.status_code == 200:
+                result_data = response.json()
+                print(result_data)
+                classes_data = result_data['data']['classes']
+                classes = [{'class_id': cls['class_id'], 'class_name': cls['class_name']} for cls in classes_data]
+            else:
+                return redirect('results')
         except requests.RequestException as e:
             classes = []
         context = {
@@ -200,20 +204,20 @@ def searched_results(request):
 
         if response.status_code == 200:
             result = response.json()
-            print(result)
             sorted_marks = sorted(result['data']['marks'], key=lambda x: (x['subject_code'] is not None, x['subject_code']))
             result['data']['marks'] = sorted_marks
             message = "Result Published"
             context = {
                 'message':message,
+                'roll_no':roll_no,
                 'result':result,
             }
             return render(request, 'final_result.html',context)
         else:
-            result = response.json()
-            message = result.get('message')
+            message = "result not found"
             context = {
                 'message':message,
+                'roll_no':roll_no,
             }
             return render(request, 'final_result.html',context)
 
