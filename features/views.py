@@ -220,4 +220,5 @@ def searched_results(request):
                 'roll_no':roll_no,
             }
             return render(request, 'final_result.html',context)
-
+    else:
+        return redirect('results')
