@@ -110,7 +110,8 @@ def notice(request):
 
 
 def results(request):
-    url = "http://sms.eagerbridge.edu.np:82/api/external/get-level-lists?&tenant_id=dcd7bbdc-47fc-4412-91f9-f8cf8e906f69"
+    url = "http://spellsms.com:82/api/external/get-level-lists?&tenant_id=99cdc0be-8e97-4b28-be0a-ce8e928e732ds"
+    # url = "http://sms.eagerbridge.edu.np:82/api/external/get-level-lists?&tenant_id=dcd7bbdc-47fc-4412-91f9-f8cf8e906f69"
     try:
         response = requests.get(url)
         result_data = response.json()
